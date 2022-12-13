@@ -1,5 +1,0 @@
-The total unemployment rate for March 2020 was 406.2.
-The total unemployment rate for March 2021 was 510.0000000000009.
-To find the average unemployment rate for each year, we divided the total unemployment rate (sum) by the count.
-The average unemployment rate for March 2020 was 4.062.
-The average unemployment rate for March 2021 was 5.100000000000009.
