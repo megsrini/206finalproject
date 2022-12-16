@@ -19,6 +19,7 @@ def make_tables(cur, conn):
     website.get_data_from_website(cur, conn)
 
 def analyze(cur, conn):
+    api.analyze_from_api(cur, conn)
     website.analyze_from_website(cur, conn)
 
 def main():

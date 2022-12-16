@@ -108,4 +108,3 @@ def analyze_from_website(cur, conn):
     plt.ylabel('Unemployment Rate')
     plt.xticks(x, ('March 2020', 'March 2021'))
     plt.show()
-
