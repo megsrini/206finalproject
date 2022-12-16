@@ -65,8 +65,8 @@ def compile(dates):
 # get_data(dates[40])
 
 # in main -- create db
-path = os.path.dirname(os.path.abspath(__file__))
-conn = sqlite3.connect(path+'/'+'covid.db')
+# path = os.path.dirname(os.path.abspath(__file__))
+# conn = sqlite3.connect(path+'/'+'covid.db')
 
 # TABLE 1
 def pos_table(cur, conn):
@@ -92,8 +92,6 @@ def pos_table(cur, conn):
         date = final_tuples[i][1][0]
         positive_cases = final_tuples[i][1][1]
         positive_increase = final_tuples[i][1][2]
-        negative_cases = final_tuples[i][1][3]
-        negative_increase = final_tuples[i][1][4]
         cur.execute("INSERT OR IGNORE INTO PositiveCases (id_key, dates, positive_cases, positive_increase) VALUES (?, ?, ?, ?)", (id, date, positive_cases, positive_increase))
     conn.commit()
 
@@ -133,12 +131,12 @@ def pos_neg_table(cur, conn):
         cur.execute("SELECT PositiveCases.id_key, NegativeCases.negative_cases, PositiveCases.positive_cases FROM PositiveCases INNER JOIN NegativeCases ON PositiveCases.dates=NegativeCases.dates;")
     conn.commit()
 
-def main():
-    pos_table(conn.cursor(), conn)
-    pos_neg_table(conn.cursor(), conn)
+# def main():
+#     pos_table(conn.cursor(), conn)
+#     pos_neg_table(conn.cursor(), conn)
  
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 
 # visualization
 # SELECT
