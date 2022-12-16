@@ -6,13 +6,11 @@ import sqlite3
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-
-def get_data_from_website(): 
+def get_data_from_website(cur, conn): 
     try:
-        path = os.path.dirname(os.path.abspath(__file__))
-        conn = sqlite3.connect(path+'/'+'covid.db')
-        cur = conn.cursor()
+        # path = os.path.dirname(os.path.abspath(__file__))
+        # conn = sqlite3.connect(path+'/'+'covid.db')
+        # cur = conn.cursor()
         #cur.execute("DROP TABLE IF EXISTS Unemployment")
         cur.execute("CREATE TABLE IF NOT EXISTS Unemployment (id_key INTEGER, place TEXT, march_2020 INTEGER, march_2021 INTEGER, UNIQUE(place, march_2020, march_2021))")
         states = []
@@ -74,14 +72,14 @@ def get_data_from_website():
         print("All data added to database")
         return None
 
-def analyze_from_website():
+def analyze_from_website(cur, conn):
     total_2020 = 0 
     count_2020 = 0 
     total_2021 = 0 
     count_2021 = 0 
-    path = os.path.dirname(os.path.abspath(__file__))
-    conn = sqlite3.connect(path+'/'+'covid.db')
-    cur = conn.cursor()
+    # path = os.path.dirname(os.path.abspath(__file__))
+    # conn = sqlite3.connect(path+'/'+'covid.db')
+    # cur = conn.cursor()
     cur.execute("SELECT march_2020 FROM Unemployment")
     conn.commit()
     for num in cur.fetchall(): 
@@ -111,5 +109,3 @@ def analyze_from_website():
     plt.xticks(x, ('March 2020', 'March 2021'))
     plt.show()
 
-get_data_from_website()
-analyze_from_website()
